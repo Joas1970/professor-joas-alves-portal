@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Joás Alves | Educação, Humanidades e Tecnologia</title>
+    <meta name="description" content="Projetos educacionais do professor Joás Alves que conectam Humanidades, tecnologia, inclusão, recursos interativos e novas possibilidades de aprendizagem.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Professor Joás Alves | Educação, Humanidades e Tecnologia">
+    <meta property="og:description" content="Portal central dos projetos educacionais e digitais do Professor Joás Alves: Montar para Aprender, Escaninho Digital, Saber em Jogo e Acervo Visual Educacional.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts: Montserrat & Playfair Display for Academic Editorial touch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#333334',
+                            night: '#1c2530',
+                            deepDark: '#121921',
+                            gray: '#b9b9b8',
+                            lightGray: '#f4f4f3',
+                            cream: '#fcfbf9',
+                            gold: '#ab9061',
+                            goldHover: '#967d50',
+                            goldLight: '#f4efe6',
+                            border: '#e2e2e5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    boxShadow: {
+                        'editorial': '0 10px 30px rgba(0, 0, 0, 0.04)',
+                        'editorial-hover': '0 20px 40px rgba(0, 0, 0, 0.08)',
+                        'gold-glow': '0 0 20px rgba(171, 144, 97, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for refined editorial icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333334;
+            background-color: #fafafa;
+            overflow-x: hidden;
+        }
+
+        .highlight-gold {
+            color: #ab9061;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight-gold::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(171, 144, 97, 0.3);
+            border-radius: 2px;
+        }
+
+        .card-project-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-project-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover .card-project-img {
+            transform: scale(1.04);
+        }
+
+        /* Custom Scrollbar for sleek look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ab9061;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #967d50;
+        }
+
+        /* Focus Ring Style for Accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid #ab9061;
+            outline-offset: 3px;
+        }
+
+        /* Subtle grid background pattern */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(171, 144, 97, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .editorial-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(171, 144, 97, 0.4), transparent);
+        }
+
+        .hero-portrait-frame {
+            min-height: 620px;
+            background-color: #1c2530;
+        }
+
+        .hero-portrait-img {
+            display: block;
+            width: 100%;
+            height: 720px;
+            object-fit: contain;
+            object-position: center bottom;
+            transform-origin: center bottom;
+            transform: translateY(-80px);
+            transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .hero-portrait-frame:hover .hero-portrait-img {
+                transform: translateY(-88px) scale(1.015);
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .hero-portrait-frame {
+                min-height: 0;
+            }
+
+            .hero-portrait-img {
+                height: min(76vh, 660px);
+                min-height: 440px;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .hero-portrait-img {
+                height: 500px;
+                min-height: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-portrait-img {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header id="main-header" class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#inicio" class="group flex items-center text-brand-gold focus:outline-none" aria-label="Humanidades e Tecnologia">
+                <span class="text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase group-hover:text-brand-dark transition-colors">
+                    HUMANIDADES E TECNOLOGIA
+                </span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-dark" aria-label="Navegação Principal">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Início</a>
+                <a href="#sobre" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Sobre</a>
+                <a href="#projetos" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Projetos</a>
+                <a href="#contato" class="hover:text-brand-gold transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-gold hover:after:w-full after:transition-all">Contato</a>
+            </nav>
+
+            <!-- CTA Button & Mobile Menu Trigger -->
+            <div class="flex items-center gap-4">
+                <a href="#projetos" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-gold hover:bg-brand-goldHover transition-all shadow-sm hover:shadow-md active:scale-95">
+                    Conheça os projetos
+                </a>
+
+                <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-lg text-brand-dark hover:text-brand-gold hover:bg-brand-lightGray focus:outline-none" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-border px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#inicio" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-brand-goldLight hover:text-brand-gold transition-colors">Início</a>
+            <a href="#sobre" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-brand-goldLight hover:text-brand-gold transition-colors">Sobre</a>
+            <a href="#projetos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-brand-goldLight hover:text-brand-gold transition-colors">Projetos</a>
+            <a href="#contato" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-dark hover:bg-brand-goldLight hover:text-brand-gold transition-colors">Contato</a>
+            <div class="pt-2 border-t border-brand-border">
+                <a href="#projetos" class="mobile-nav-link block w-full text-center px-4 py-3 rounded-md text-base font-semibold text-white bg-brand-gold hover:bg-brand-goldHover shadow">
+                    Conheça os projetos
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative py-10 lg:py-0 bg-brand-night text-white overflow-hidden border-b border-brand-border/60">
+            <!-- Subtle background geometric graphics -->
+            <div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl pointer-events-none"></div>
+
+            <div class="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                    
+                    <!-- Left Text Content Column (Approx 55%) -->
+                    <div class="lg:col-span-7 flex flex-col items-start space-y-5 lg:py-16 text-left">
+                        
+                        <!-- Eyebrow Tagline -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-brand-gold/40 text-brand-gold text-xs font-bold tracking-widest uppercase">
+                            <i class="fa-solid fa-graduation-cap text-xs"></i>
+                            <span id="hero-eyebrow">EDUCAÇÃO • HUMANIDADES • TECNOLOGIA • INCLUSÃO</span>
+                        </div>
+
+                        <!-- Hero Main Headline -->
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.12] max-w-3xl">
+                            <span id="hero-title-prefix">Ensinar, criar e compartilhar </span>
+                            <span id="hero-title-highlight" class="highlight-gold text-brand-gold">novas formas de aprender.</span>
+                        </h1>
+
+                        <!-- Hero Description -->
+                        <p id="hero-description" class="text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl font-normal">
+                            Sou o professor Joás Alves. Ensino, tecnologia e inclusão fazem parte da minha busca por experiências de aprendizagem mais significativas, participativas e acessíveis.
+                        </p>
+
+                        <!-- CTA Action Buttons -->
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                            <a id="hero-primary-btn" href="#projetos" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-base font-semibold text-white bg-brand-gold hover:bg-brand-goldHover shadow-sm hover:shadow-md transition-all group">
+                                <span>CONHEÇA OS PROJETOS</span>
+                                <i class="fa-solid fa-arrow-down ml-2.5 text-xs transition-transform group-hover:translate-y-0.5"></i>
+                            </a>
+                            <a id="hero-secondary-btn" href="#sobre" class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-base font-semibold text-white bg-white/5 border border-white/25 hover:border-brand-gold hover:bg-white/10 transition-all shadow-sm">
+                                <span>SOBRE O PROFESSOR</span>
+                            </a>
+                        </div>
+
+                        <!-- Mini Credibility Indicators -->
+                        <div class="pt-5 border-t border-white/15 w-full grid grid-cols-3 gap-4 text-center sm:text-left">
+                            <div>
+                                <span class="block font-bold text-xl sm:text-2xl text-white">4</span>
+                                <span class="text-xs text-gray-300 font-medium">Projetos Digitais</span>
+                            </div>
+                            <div>
+                                <span class="block break-words font-bold text-sm sm:text-2xl leading-tight text-white">Humanidades</span>
+                                <span class="text-xs text-gray-300 font-medium">História & Filosofia</span>
+                            </div>
+                            <div>
+                                <span class="block break-words font-bold text-sm sm:text-2xl leading-tight text-white">Acessível</span>
+                                <span class="text-xs text-gray-300 font-medium">Tecnologia Inclusiva</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Portrait Column (Approx 45%) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end -mx-4 sm:-mx-6 lg:mx-0">
+                        <div class="hero-portrait-frame relative w-full flex items-end justify-center overflow-hidden">
+                            <!-- Decorative frame border -->
+                            <div class="absolute inset-x-8 top-10 bottom-0 rounded-t-full border border-brand-gold/20 pointer-events-none"></div>
+                            <div class="relative w-full h-full flex items-end justify-center">
+                                <img id="hero-portrait-img" 
+                                     src="./Nova seleção de fotos/fotos selecionadas/primeira 3.png" 
+                                     alt="Fotografia do Professor Joás Alves em jaqueta preta com braços cruzados e óculos" 
+                                     class="hero-portrait-img relative z-10"
+                                     onerror="this.onerror=null; this.src='https://placehold.co/600x800/1c2530/ab9061?text=Professor+Jo%C3%A1s+Alves';"
+                                />
+                                
+                                <!-- Subtle overlay badge for academic context -->
+                                <div class="absolute bottom-4 left-4 right-4 z-20 bg-brand-night/90 backdrop-blur-md p-4 rounded-xl border border-brand-gold/30 flex items-center justify-between">
+                                    <div>
+                                        <p class="text-white font-bold text-sm">Prof. Joás Alves</p>
+                                        <p class="text-brand-gold text-xs font-medium">Educador, Pesquisador & Criador</p>
+                                    </div>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-gold" title="Projetos em expansão contínua"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE / SEÇÃO DE TRANSIÇÃO -->
+        <section id="sobre" class="py-16 md:py-24 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+                
+                <!-- Section Icon/Emblem -->
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-goldLight text-brand-gold border border-brand-gold/20 shadow-sm">
+                    <i class="fa-solid fa-compass text-lg"></i>
+                </div>
+
+                <!-- Eyebrow -->
+                <p id="about-eyebrow" class="text-xs sm:text-sm font-bold tracking-widest uppercase text-brand-gold">
+                    UM MESMO PROPÓSITO, DIFERENTES CAMINHOS
+                </p>
+
+                <!-- Section Title -->
+                <h2 id="about-title" class="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark tracking-tight leading-snug">
+                    Projetos que conectam educação, tecnologia e Humanidades.
+                </h2>
+
+                <div class="w-16 h-0.5 bg-brand-gold mx-auto rounded-full"></div>
+
+                <!-- Paragraph Text -->
+                <p id="about-description" class="text-base sm:text-lg text-brand-dark/80 leading-relaxed font-normal max-w-2xl mx-auto">
+                    Cada projeto nasceu de uma necessidade da prática educacional e explora diferentes possibilidades para ensinar, aprender, criar, adaptar e compartilhar conhecimento.
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJETOS SECTION -->
+        <section id="projetos" class="py-16 md:py-24 bg-brand-cream/50 border-t border-brand-border/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-brand-border pb-6">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest uppercase text-brand-gold block mb-1">RECURSOS & PLATAFORMAS</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight">Projetos Educacionais</h2>
+                    </div>
+                    <p class="text-sm text-brand-dark/70 mt-2 md:mt-0 max-w-md">
+                        Explore os portais desenvolvidos para dar suporte a professores, estudantes e pesquisadores.
+                    </p>
+                </div>
+
+                <!-- Projects Dynamic Grid (Desktop 2x2, Mobile 1 col) -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                    <!-- Dynamic rendering target via JS based on SITE_DATA -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO FINAL DE FECHAMENTO -->
+        <section id="contato" class="py-20 lg:py-28 bg-brand-night text-white relative overflow-hidden">
+            <!-- Subtle background light pattern -->
+            <div class="absolute inset-0 opacity-10 bg-grid-pattern pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-brand-gold text-xs font-bold tracking-widest uppercase">
+                    <span>ENSINO • TECNOLOGIA • ACESSIBILIDADE</span>
+                </div>
+
+                <h2 id="final-title" class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                    Projetos diferentes. Um mesmo compromisso com a aprendizagem.
+                </h2>
+
+                <p id="final-description" class="text-base sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto font-light">
+                    A tecnologia ganha sentido quando amplia possibilidades de participação, investigação, criação e aprendizagem.
+                </p>
+
+                <div class="pt-4">
+                    <a href="#projetos" class="inline-flex items-center justify-center px-8 py-4 rounded-lg text-base font-semibold text-brand-night bg-brand-gold hover:bg-white transition-all duration-300 shadow-lg hover:shadow-gold-glow">
+                        <i class="fa-solid fa-arrow-up-long mr-2.5"></i>
+                        <span>Voltar aos projetos</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-deepDark text-gray-400 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Identity -->
+                <div class="md:col-span-6 space-y-2 text-center md:text-left">
+                    <p class="text-lg font-bold text-white tracking-tight">Professor Joás Alves</p>
+                    <p class="text-xs text-brand-gold tracking-wider uppercase font-medium">
+                        Educação • História • Filosofia • Tecnologia Educacional
+                    </p>
+                    <p class="text-xs text-gray-500 pt-1">
+                        Inovação pedagógica, acervos digitais e materiais acessíveis para o ensino continuado.
+                    </p>
+                </div>
+
+                <!-- Right Links for Projects -->
+                <div class="md:col-span-6 flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-xs font-medium">
+                    <a href="https://www.montarparaaprender.com.br/" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">Montar para Aprender</a>
+                    <a href="https://www.escaninhodigital.com.br/" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">Escaninho Digital</a>
+                    <a href="https://saber.professorjoas.com.br/" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">Saber em Jogo</a>
+                    <a href="https://acervo.professorjoas.com.br/" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">Acervo Visual Educacional</a>
+                </div>
+
+            </div>
+
+            <!-- Divider & Copyright -->
+            <div class="editorial-line my-8"></div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p id="copyright-text">
+                    &copy; <span id="current-year"></span> Professor Joás Alves. Todos os direitos reservados.
+                </p>
+
+                <!-- Secret/Subtle Trigger to Edit Site Data -->
+                <button id="toggle-editor-btn" type="button" class="inline-flex items-center gap-1.5 text-gray-500 hover:text-brand-gold transition-colors px-2.5 py-1 rounded border border-gray-800 hover:border-brand-gold/40 text-[11px]" title="Gerenciar dados do site">
+                    <i class="fa-solid fa-pen-to-square text-xs"></i>
+                    <span>Modo Edição (SITE_DATA)</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OVER EDIT DATA MODAL (REQUISITO FUNDAMENTAL #11) -->
+    <div id="editor-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex justify-end transition-opacity duration-300">
+        <div class="w-full max-w-2xl bg-white h-full shadow-2xl flex flex-col overflow-hidden">
+            <!-- Modal Header -->
+            <div class="p-5 bg-brand-night text-white flex items-center justify-between border-b border-brand-gold/30">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-brand-gold"></i>
+                    <h3 class="font-bold text-lg">Painel de Edição Central (SITE_DATA)</h3>
+                </div>
+                <button id="close-editor-btn" type="button" class="text-gray-400 hover:text-white text-xl p-1 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Editor Form Content -->
+            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-sm text-brand-dark">
+                <div class="p-3 bg-brand-goldLight rounded-lg text-brand-dark text-xs border border-brand-gold/30">
+                    <p class="font-bold mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Instruções:</p>
+                    Altere os dados abaixo para modificar instantaneamente os conteúdos da landing page sem alterar a estrutura HTML.
+                </div>
+
+                <!-- Hero Section Fields -->
+                <div class="border-b border-brand-border pb-4 space-y-3">
+                    <h4 class="font-bold text-brand-gold uppercase text-xs tracking-wider">Configurações da HERO</h4>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">URL da Imagem do Professor:</label>
+                        <input id="edit-hero-img" type="text" class="w-full p-2 border border-brand-border rounded focus:ring-1 focus:ring-brand-gold text-xs">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Identificação Superior (Eyebrow):</label>
+                        <input id="edit-hero-eyebrow" type="text" class="w-full p-2 border border-brand-border rounded focus:ring-1 focus:ring-brand-gold text-xs">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Título (Prefixo):</label>
+                            <input id="edit-hero-title-prefix" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Título (Destaque Dourado):</label>
+                            <input id="edit-hero-title-highlight" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Descrição Hero:</label>
+                        <textarea id="edit-hero-desc" rows="3" class="w-full p-2 border border-brand-border rounded text-xs"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Botão principal (label):</label>
+                            <input id="edit-hero-primary-label" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Botão principal (URL):</label>
+                            <input id="edit-hero-primary-url" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Botão secundário (label):</label>
+                            <input id="edit-hero-secondary-label" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Botão secundário (URL):</label>
+                            <input id="edit-hero-secondary-url" type="text" class="w-full p-2 border border-brand-border rounded text-xs">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects JSON Editor -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-brand-gold uppercase text-xs tracking-wider">JSON dos Projetos (Edição Avançada)</h4>
+                    <p class="text-xs text-gray-500">Você pode modificar as propriedades dos 4 cards de projetos diretamente em formato JSON:</p>
+                    <textarea id="edit-projects-json" rows="12" class="w-full p-3 font-mono text-xs border border-brand-border rounded bg-gray-50 text-gray-800 focus:ring-1 focus:ring-brand-gold"></textarea>
+                </div>
+            </div>
+
+            <!-- Modal Footer Controls -->
+            <div class="p-4 bg-gray-100 border-t border-brand-border flex items-center justify-between gap-3">
+                <button id="reset-data-btn" type="button" class="px-4 py-2 text-xs font-medium text-red-600 hover:bg-red-50 rounded border border-red-200 transition-colors">
+                    Restaurar Padrão
+                </button>
+                <div class="flex gap-2">
+                    <button id="cancel-editor-btn" type="button" class="px-4 py-2 text-xs font-medium text-gray-600 hover:bg-gray-200 rounded transition-colors">
+                        Cancelar
+                    </button>
+                    <button id="save-editor-btn" type="button" class="px-5 py-2 text-xs font-bold text-white bg-brand-gold hover:bg-brand-goldHover rounded shadow transition-all">
+                        Aplicar Alterações
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/content.js"></script>
+    <script>
+        /* ==========================================================================
+           REQUISITO FUNDAMENTAL #11 — CAMPOS EDITÁVEIS (SITE_DATA)
+           Centralized Data Structure for Professor Joás Alves Educational Landing Page
+           ========================================================================== */
+        
+        const DEFAULT_SITE_DATA = window.PROF_JOAS_DEFAULT_SITE_DATA || {
+            hero: {
+                image: "primeira 3.jpg",
+                imageAlt: "Fotografia do Professor Joás Alves",
+                eyebrow: "EDUCAÇÃO • HUMANIDADES • TECNOLOGIA • INCLUSÃO",
+                titlePrefix: "Ensinar, criar e compartilhar ",
+                highlight: "novas formas de aprender.",
+                description: "Sou o professor Joás Alves. Ensino, tecnologia e inclusão fazem parte da minha busca por experiências de aprendizagem mais significativas, participativas e acessíveis.",
+                primaryButton: {
+                    label: "CONHEÇA OS PROJETOS",
+                    url: "#projetos"
+                },
+                secondaryButton: {
+                    label: "SOBRE O PROFESSOR",
+                    url: "#sobre"
+                }
+            },
+            about: {
+                eyebrow: "UM MESMO PROPÓSITO, DIFERENTES CAMINHOS",
+                title: "Projetos que conectam educação, tecnologia e Humanidades.",
+                description: "Cada projeto nasceu de uma necessidade da prática educacional e explora diferentes possibilidades para ensinar, aprender, criar, adaptar e compartilhar conhecimento."
+            },
+            projects: [
+                {
+                    id: "montar-para-aprender",
+                    category: "METODOLOGIA • INTERAÇÃO • INCLUSÃO",
+                    title: "Montar para Aprender",
+                    description: "Recursos educacionais e atividades pedagógicas interativas que aproximam tecnologia, educação e inclusão. Uma proposta que valoriza diferentes ritmos e possibilidades de participação na aprendizagem.",
+                    tags: ["Interatividade", "Inclusão", "Autonomia"],
+                    buttonLabel: "Conhecer o projeto",
+                    url: "https://www.montarparaaprender.com.br/",
+                    /* SVG / Graphic mockup fallback representation */
+                    visualSvg: `<svg class="w-full h-full text-brand-gold/80" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="240" fill="#1c2530"/>
+                        <circle cx="200" cy="120" r="70" stroke="#ab9061" stroke-width="2" stroke-dasharray="6 6"/>
+                        <rect x="130" y="80" width="60" height="60" rx="8" fill="#ab9061" fill-opacity="0.2" stroke="#ab9061" stroke-width="2"/>
+                        <rect x="210" y="100" width="60" height="60" rx="8" fill="#ffffff" fill-opacity="0.1" stroke="#ffffff" stroke-width="2"/>
+                        <path d="M160 110 L210 130" stroke="#ab9061" stroke-width="2"/>
+                        <path d="M190 70 Q 200 50, 210 70" stroke="#ab9061" stroke-width="2" fill="none"/>
+                        <text x="200" y="210" text-anchor="middle" fill="#b9b9b8" font-size="12" font-family="sans-serif">INTERATIVIDADE & INCLUSÃO</text>
+                    </svg>`
+                },
+                {
+                    id: "escaninho-digital",
+                    category: "ACERVO • EDUCAÇÃO • HUMANIDADES",
+                    title: "Escaninho Digital",
+                    description: "Um espaço para ensinar, aprender e compartilhar. Reúne recursos, experiências, materiais educacionais e produções voltadas especialmente às Humanidades e à prática docente.",
+                    tags: ["Educação", "Humanidades", "Recursos"],
+                    buttonLabel: "Explorar o Escaninho",
+                    url: "https://www.escaninhodigital.com.br/",
+                    visualSvg: `<svg class="w-full h-full text-brand-gold/80" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="240" fill="#242b35"/>
+                        <rect x="80" y="50" width="240" height="140" rx="4" fill="#1c2530" stroke="#ab9061" stroke-width="1.5"/>
+                        <line x1="80" y1="95" x2="320" y2="95" stroke="#ab9061" stroke-width="1" stroke-dasharray="4 4"/>
+                        <line x1="80" y1="140" x2="320" y2="140" stroke="#ab9061" stroke-width="1" stroke-dasharray="4 4"/>
+                        <rect x="100" y="65" width="40" height="18" rx="2" fill="#ab9061"/>
+                        <rect x="150" y="65" width="70" height="18" rx="2" fill="#ffffff" fill-opacity="0.1"/>
+                        <rect x="100" y="110" width="90" height="18" rx="2" fill="#ffffff" fill-opacity="0.1"/>
+                        <text x="200" y="210" text-anchor="middle" fill="#b9b9b8" font-size="12" font-family="sans-serif">REPOSITÓRIO DE HUMANIDADES</text>
+                    </svg>`
+                },
+                {
+                    id: "saber-em-jogo",
+                    category: "APRENDIZAGEM • JOGOS • PARTICIPAÇÃO",
+                    title: "Saber em Jogo",
+                    description: "Um ambiente de atividades educacionais que transforma questões e conteúdos em experiências interativas de aprendizagem, permitindo ao professor criar, organizar e aplicar jogos com seus estudantes.",
+                    tags: ["Jogos", "Interação", "Aprendizagem"],
+                    buttonLabel: "Entrar no Saber em Jogo",
+                    url: "https://saber.professorjoas.com.br/",
+                    visualSvg: `<svg class="w-full h-full" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="240" fill="#17202a"/>
+                        <circle cx="120" cy="110" r="35" fill="#ab9061" fill-opacity="0.2" stroke="#ab9061" stroke-width="2"/>
+                        <polygon points="120,85 130,115 105,100" fill="#ab9061"/>
+                        <rect x="200" y="75" width="120" height="80" rx="10" fill="#1c2530" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+                        <circle cx="230" cy="115" r="10" fill="#ab9061"/>
+                        <circle cx="260" cy="115" r="10" fill="#ffffff" fill-opacity="0.3"/>
+                        <circle cx="290" cy="115" r="10" fill="#ffffff" fill-opacity="0.3"/>
+                        <text x="200" y="210" text-anchor="middle" fill="#b9b9b8" font-size="12" font-family="sans-serif">GAMIFICAÇÃO PEDAGÓGICA</text>
+                    </svg>`
+                },
+                {
+                    id: "acervo-visual-educacional",
+                    category: "HISTÓRIA • FILOSOFIA • CULTURA VISUAL",
+                    title: "Acervo Visual Educacional",
+                    description: "Um projeto independente dedicado à pesquisa e seleção de obras de arte e documentos visuais para o ensino de História e Filosofia, aproximando acervos culturais, patrimônio e práticas pedagógicas.",
+                    tags: ["História", "Filosofia", "Acervos"],
+                    buttonLabel: "Explorar o acervo",
+                    url: "https://acervo.professorjoas.com.br/",
+                    visualSvg: `<svg class="w-full h-full" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="240" fill="#1a232e"/>
+                        <!-- Classical Column Silhouette Icon -->
+                        <rect x="130" y="60" width="140" height="12" fill="#ab9061"/>
+                        <rect x="140" y="72" width="120" height="8" fill="#ffffff" fill-opacity="0.2"/>
+                        <rect x="150" y="80" width="12" height="80" fill="#ab9061" fill-opacity="0.8"/>
+                        <rect x="174" y="80" width="12" height="80" fill="#ab9061" fill-opacity="0.8"/>
+                        <rect x="198" y="80" width="12" height="80" fill="#ab9061" fill-opacity="0.8"/>
+                        <rect x="222" y="80" width="12" height="80" fill="#ab9061" fill-opacity="0.8"/>
+                        <rect x="246" y="80" width="12" height="80" fill="#ab9061" fill-opacity="0.8"/>
+                        <rect x="130" y="160" width="140" height="16" fill="#ab9061"/>
+                        <text x="200" y="210" text-anchor="middle" fill="#b9b9b8" font-size="12" font-family="sans-serif">PATRIMÔNIO & CULTURA VISUAL</text>
+                    </svg>`
+                }
+            ],
+            finalSection: {
+                eyebrow: "ENSINO • TECNOLOGIA • ACESSIBILIDADE",
+                title: "Projetos diferentes. Um mesmo compromisso com a aprendizagem.",
+                description: "A tecnologia ganha sentido quando amplia possibilidades de participação, investigação, criação e aprendizagem."
+            }
+        };
+
+        // Active State initialized from localStorage or fallback to default
+        let SITE_DATA = JSON.parse(localStorage.getItem('PROF_JOAS_SITE_DATA')) || JSON.parse(JSON.stringify(DEFAULT_SITE_DATA));
+
+        // Function to render all elements on the page dynamically
+        function renderSite() {
+            // 1. Render Hero Section
+            document.getElementById('hero-portrait-img').src = SITE_DATA.hero.image;
+            document.getElementById('hero-portrait-img').alt = SITE_DATA.hero.imageAlt || "Fotografia do Professor Joás Alves";
+            document.getElementById('hero-eyebrow').innerText = SITE_DATA.hero.eyebrow;
+            document.getElementById('hero-title-prefix').innerText = SITE_DATA.hero.titlePrefix;
+            document.getElementById('hero-title-highlight').innerText = SITE_DATA.hero.highlight;
+            document.getElementById('hero-description').innerText = SITE_DATA.hero.description;
+
+            const primaryButton = document.getElementById('hero-primary-btn');
+            const secondaryButton = document.getElementById('hero-secondary-btn');
+            const primaryLabel = primaryButton.querySelector('span');
+            const secondaryLabel = secondaryButton.querySelector('span');
+
+            primaryButton.href = SITE_DATA.hero.primaryButton.url;
+            primaryLabel.innerText = SITE_DATA.hero.primaryButton.label;
+            secondaryButton.href = SITE_DATA.hero.secondaryButton.url;
+            secondaryLabel.innerText = SITE_DATA.hero.secondaryButton.label;
+
+            // 2. Render Transition Section
+            document.getElementById('about-eyebrow').innerText = SITE_DATA.about.eyebrow;
+            document.getElementById('about-title').innerText = SITE_DATA.about.title;
+            document.getElementById('about-description').innerText = SITE_DATA.about.description;
+
+            // 3. Render 4 Large Editorial Project Cards
+            const gridContainer = document.getElementById('projects-grid');
+            gridContainer.innerHTML = '';
+
+            SITE_DATA.projects.forEach((proj) => {
+                const card = document.createElement('article');
+                card.className = "project-card bg-white rounded-2xl border border-brand-border shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col justify-between overflow-hidden group";
+
+                const tagsHtml = proj.tags.map(tag => 
+                    `<span class="px-2.5 py-1 rounded-md bg-brand-lightGray text-brand-dark/70 text-xs font-medium border border-brand-border/60">${tag}</span>`
+                ).join('');
+
+                card.innerHTML = `
+                    <div>
+                        <!-- Card Image / Graphical Mockup Area (Approx 45-50% visual height) -->
+                        <div class="card-project-img-wrapper h-56 sm:h-64 bg-brand-night flex items-center justify-center border-b border-brand-border">
+                            ${proj.visualSvg}
+                            
+                            <div class="absolute top-4 left-4 bg-brand-night/80 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-gold/30">
+                                <span class="text-[10px] font-bold tracking-widest text-brand-gold uppercase">${proj.category}</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body Content -->
+                        <div class="p-6 sm:p-8 space-y-4">
+                            <h3 class="text-2xl font-bold text-brand-dark group-hover:text-brand-gold transition-colors leading-tight">
+                                ${proj.title}
+                            </h3>
+
+                            <p class="text-sm sm:text-base text-brand-dark/80 leading-relaxed">
+                                ${proj.description}
+                            </p>
+
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                ${tagsHtml}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Footer Action -->
+                    <div class="px-6 pb-6 sm:px-8 sm:pb-8 pt-2">
+                        <a href="${proj.url}" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-brand-dark bg-brand-lightGray hover:bg-brand-gold hover:text-white transition-all duration-300 border border-brand-border group/btn">
+                            <span>${proj.buttonLabel}</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
+                        </a>
+                    </div>
+                `;
+
+                gridContainer.appendChild(card);
+            });
+
+            // 4. Render Final Section
+            document.getElementById('final-title').innerText = SITE_DATA.finalSection.title;
+            document.getElementById('final-description').innerText = SITE_DATA.finalSection.description;
+
+            // 5. Update Current Year in Footer
+            document.getElementById('current-year').innerText = new Date().getFullYear();
+        }
+
+        // Dynamic Modal Form Populate
+        function populateEditorModal() {
+            document.getElementById('edit-hero-img').value = SITE_DATA.hero.image;
+            document.getElementById('edit-hero-eyebrow').value = SITE_DATA.hero.eyebrow;
+            document.getElementById('edit-hero-title-prefix').value = SITE_DATA.hero.titlePrefix;
+            document.getElementById('edit-hero-title-highlight').value = SITE_DATA.hero.highlight;
+            document.getElementById('edit-hero-desc').value = SITE_DATA.hero.description;
+            document.getElementById('edit-hero-primary-label').value = SITE_DATA.hero.primaryButton.label;
+            document.getElementById('edit-hero-primary-url').value = SITE_DATA.hero.primaryButton.url;
+            document.getElementById('edit-hero-secondary-label').value = SITE_DATA.hero.secondaryButton.label;
+            document.getElementById('edit-hero-secondary-url').value = SITE_DATA.hero.secondaryButton.url;
+
+            document.getElementById('edit-projects-json').value = JSON.stringify(SITE_DATA.projects, null, 2);
+        }
+
+        // Save Editor Changes
+        function saveEditorChanges() {
+            try {
+                SITE_DATA.hero.image = document.getElementById('edit-hero-img').value;
+                SITE_DATA.hero.eyebrow = document.getElementById('edit-hero-eyebrow').value;
+                SITE_DATA.hero.titlePrefix = document.getElementById('edit-hero-title-prefix').value;
+                SITE_DATA.hero.highlight = document.getElementById('edit-hero-title-highlight').value;
+                SITE_DATA.hero.description = document.getElementById('edit-hero-desc').value;
+                SITE_DATA.hero.primaryButton.label = document.getElementById('edit-hero-primary-label').value;
+                SITE_DATA.hero.primaryButton.url = document.getElementById('edit-hero-primary-url').value;
+                SITE_DATA.hero.secondaryButton.label = document.getElementById('edit-hero-secondary-label').value;
+                SITE_DATA.hero.secondaryButton.url = document.getElementById('edit-hero-secondary-url').value;
+
+                const updatedProjects = JSON.parse(document.getElementById('edit-projects-json').value);
+                if (Array.isArray(updatedProjects)) {
+                    SITE_DATA.projects = updatedProjects;
+                }
+
+                localStorage.setItem('PROF_JOAS_SITE_DATA', JSON.stringify(SITE_DATA));
+                renderSite();
+                closeModal();
+            } catch (err) {
+                alert('Erro na formatação dos dados. Certifique-se de que o JSON é válido.');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('editor-modal').classList.add('hidden');
+        }
+
+        function openModal() {
+            populateEditorModal();
+            document.getElementById('editor-modal').classList.remove('hidden');
+        }
+
+        // Event Listeners Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSite();
+
+            // Mobile Menu Toggle Logic
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                if (isOpen) {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fa-solid fa-bars text-xl';
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.className = 'fa-solid fa-xmark text-xl';
+                    mobileBtn.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            // Close mobile menu on clicking any link
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.className = 'fa-solid fa-bars text-xl';
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Modal Controls
+            document.getElementById('toggle-editor-btn').addEventListener('click', openModal);
+            document.getElementById('close-editor-btn').addEventListener('click', closeModal);
+            document.getElementById('cancel-editor-btn').addEventListener('click', closeModal);
+            document.getElementById('save-editor-btn').addEventListener('click', saveEditorChanges);
+
+            document.getElementById('reset-data-btn').addEventListener('click', () => {
+                if (confirm('Deseja restaurar as configurações originais do site?')) {
+                    localStorage.removeItem('PROF_JOAS_SITE_DATA');
+                    SITE_DATA = JSON.parse(JSON.stringify(DEFAULT_SITE_DATA));
+                    renderSite();
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
