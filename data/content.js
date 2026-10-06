@@ -33,6 +33,8 @@ window.PROF_JOAS_DEFAULT_SITE_DATA = {
       tags: ["Interatividade", "Inclusão", "Autonomia"],
       buttonLabel: "Conhecer o projeto",
       url: "https://www.montarparaaprender.com.br/",
+      image: "./images/montar-para-aprender.jpg",
+      imageAlt: "Professora e crianças montando peças coloridas em uma mesa de atividades.",
       visualSvg: `
         <svg class="w-full h-full text-brand-gold/80" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="400" height="240" fill="#1c2530"/>
@@ -54,6 +56,8 @@ window.PROF_JOAS_DEFAULT_SITE_DATA = {
       tags: ["Educação", "Humanidades", "Recursos"],
       buttonLabel: "Explorar o Escaninho",
       url: "https://www.escaninhodigital.com.br/",
+      image: "./images/escaninho-digital.jpg",
+      imageAlt: "Mesa de estudos com livros de Humanidades, busto clássico, globo, mapa antigo e caderno aberto com óculos.",
       visualSvg: `
         <svg class="w-full h-full text-brand-gold/80" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="400" height="240" fill="#242b35"/>
@@ -76,6 +80,8 @@ window.PROF_JOAS_DEFAULT_SITE_DATA = {
       tags: ["Jogos", "Interação", "Aprendizagem"],
       buttonLabel: "Entrar no Saber em Jogo",
       url: "https://saber.professorjoas.com.br/",
+      image: "./images/saber-em-jogo.jpg",
+      imageAlt: "Ilustração de uma sala de aula em que estudantes usam tablets enquanto o professor aponta para o quadro.",
       visualSvg: `
         <svg class="w-full h-full" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="400" height="240" fill="#17202a"/>
@@ -98,6 +104,8 @@ window.PROF_JOAS_DEFAULT_SITE_DATA = {
       tags: ["História", "Filosofia", "Acervos"],
       buttonLabel: "Explorar o acervo",
       url: "https://acervo.professorjoas.com.br/",
+      image: "./images/acervo-visual.jpg",
+      imageAlt: "Colagem em tons de sépia com templos gregos, busto clássico e documentos antigos conectados por linhas luminosas.",
       visualSvg: `
         <svg class="w-full h-full" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="400" height="240" fill="#1a232e"/>

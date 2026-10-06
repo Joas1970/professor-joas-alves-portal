@@ -685,7 +685,7 @@
                     <div>
                         <!-- Card Image / Graphical Mockup Area (Approx 45-50% visual height) -->
                         <div class="card-project-img-wrapper h-56 sm:h-64 bg-brand-night flex items-center justify-center border-b border-brand-border">
-                            ${proj.visualSvg}
+                            ${proj.image ? `<img src="${proj.image}" alt="${proj.imageAlt || proj.title}" loading="lazy" class="w-full h-full object-cover">` : proj.visualSvg}
                             
                             <div class="absolute top-4 left-4 bg-brand-night/80 backdrop-blur-sm px-3 py-1 rounded-full border border-brand-gold/30">
                                 <span class="text-[10px] font-bold tracking-widest text-brand-gold uppercase">${proj.category}</span>
