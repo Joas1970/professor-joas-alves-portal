@@ -10,6 +10,11 @@
     <meta property="og:title" content="Professor Joás Alves | Educação, Humanidades e Tecnologia">
     <meta property="og:description" content="Portal central dos projetos educacionais e digitais do Professor Joás Alves: Montar para Aprender, Escaninho Digital, Saber em Jogo e Acervo Visual Educacional.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.professorjoas.com.br/">
+    <meta property="og:image" content="https://www.professorjoas.com.br/images/og-share.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://www.professorjoas.com.br/">
     
     <!-- Google Fonts: Montserrat & Playfair Display for Academic Editorial touch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -417,7 +422,7 @@
                 </p>
 
                 <!-- Secret/Subtle Trigger to Edit Site Data -->
-                <button id="toggle-editor-btn" type="button" class="inline-flex items-center gap-1.5 text-gray-500 hover:text-brand-gold transition-colors px-2.5 py-1 rounded border border-gray-800 hover:border-brand-gold/40 text-[11px]" title="Gerenciar dados do site">
+                <button id="toggle-editor-btn" type="button" style="display:none" class="inline-flex items-center gap-1.5 text-gray-500 hover:text-brand-gold transition-colors px-2.5 py-1 rounded border border-gray-800 hover:border-brand-gold/40 text-[11px]" title="Gerenciar dados do site">
                     <i class="fa-solid fa-pen-to-square text-xs"></i>
                     <span>Modo Edição (SITE_DATA)</span>
                 </button>
@@ -827,5 +832,6 @@
             });
         });
     </script>
+<script>if(new URLSearchParams(location.search).has("edit")){var b=document.getElementById("toggle-editor-btn");if(b)b.style.display="";}</script>
 </body>
 </html>
