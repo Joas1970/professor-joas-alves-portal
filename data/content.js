@@ -49,7 +49,7 @@ window.PROF_JOAS_DEFAULT_SITE_DATA = {
     },
     {
       id: "escaninho-digital",
-      category: "ACERVO • EDUCAÇÃO • HUMANIDADES",
+      category: "RECURSOS • ENSINO • HUMANIDADES",
       title: "Escaninho Digital",
       description:
         "Um espaço para ensinar, aprender e compartilhar. Reúne recursos, experiências, materiais educacionais e produções voltadas especialmente às Humanidades e à prática docente.",
